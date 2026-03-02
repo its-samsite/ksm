@@ -2,8 +2,6 @@
   "use strict";
 
   $(document).ready(function () {
-
-
     /*---------- Mobile Menu  ----------*/
     $.fn.etmobilemenu = function (options) {
       var opt = $.extend(
@@ -19,7 +17,7 @@
           subMenuToggleClass: "global-open",
           toggleSpeed: 400,
         },
-        options
+        options,
       );
 
       return this.each(function () {
@@ -82,7 +80,6 @@
           menuToggle();
         });
 
-
         // Stop Hide full menu on menu click
         menu.on("click", function (e) {
           e.stopPropagation();
@@ -97,56 +94,49 @@
 
     $(".global-menu-wrapper").etmobilemenu();
 
-
-
     /*---------- Sticky fix ----------*/
     $(window).scroll(function () {
       var topPos = $(this).scrollTop();
       if (topPos > 10) {
-        $('.sticky-wrapper').addClass('sticky');
-        $('.category-menu').addClass('close-category');
+        $(".sticky-wrapper").addClass("sticky");
+        $(".category-menu").addClass("close-category");
       } else {
-        $('.sticky-wrapper').removeClass('sticky')
-        $('.category-menu').removeClass('close-category');
+        $(".sticky-wrapper").removeClass("sticky");
+        $(".category-menu").removeClass("close-category");
       }
-    })
-
-    // After
-    $('.menu-expand').on('click', function (e) {
-      e.preventDefault();
-      $('.category-menu').toggleClass('open-category');
     });
 
-
+    // After
+    $(".menu-expand").on("click", function (e) {
+      e.preventDefault();
+      $(".category-menu").toggleClass("open-category");
+    });
 
     /*---------- Popup Sidemenu ----------*/
     function popupSideMenu($sideMenu, $sideMunuOpen, $sideMenuCls, $toggleCls) {
-
-      $($sideMunuOpen).on('click', function (e) {
+      $($sideMunuOpen).on("click", function (e) {
         e.preventDefault();
         $($sideMenu).addClass($toggleCls);
       });
-      $($sideMenu).on('click', function (e) {
+      $($sideMenu).on("click", function (e) {
         e.stopPropagation();
-        $($sideMenu).removeClass($toggleCls)
+        $($sideMenu).removeClass($toggleCls);
       });
-      var sideMenuChild = $sideMenu + ' > div';
-      $(sideMenuChild).on('click', function (e) {
+      var sideMenuChild = $sideMenu + " > div";
+      $(sideMenuChild).on("click", function (e) {
         e.stopPropagation();
-        $($sideMenu).addClass($toggleCls)
+        $($sideMenu).addClass($toggleCls);
       });
 
-      $($sideMenuCls).on('click', function (e) {
+      $($sideMenuCls).on("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
         $($sideMenu).removeClass($toggleCls);
       });
-    };
+    }
 
-
-    popupSideMenu('.sidemenu-cart', '.sideMenuToggler', '.sideMenuCls', 'show');
-    popupSideMenu('.sidemenu-info', '.sideMenuInfo', '.sideMenuCls', 'show');
-
+    popupSideMenu(".sidemenu-cart", ".sideMenuToggler", ".sideMenuCls", "show");
+    popupSideMenu(".sidemenu-info", ".sideMenuInfo", ".sideMenuCls", "show");
 
     /*-----------------------------------
           Wow Animation 
@@ -156,11 +146,11 @@
     /*-----------------------------------
          Counterup 
        -----------------------------------*/
-	$('.counters-item').counterUp({
-		delay: 10,
-		time: 1000
-	});
-	
+    $(".counters-item").counterUp({
+      delay: 10,
+      time: 1000,
+    });
+
     /*-----------------------------------
           Set Background Image & Mask   
         -----------------------------------*/
@@ -200,8 +190,6 @@
       return false;
     });
 
-
-
     /*-----------------------------------
           MagnificPopup  view    
         -----------------------------------*/
@@ -218,20 +206,16 @@
       },
     });
 
-
     /*-----------------------------------
          Text Splitting
       -----------------------------------*/
     Splitting();
 
-
-
-
     /*-----------------------------------
      Slider
      -----------------------------------*/
 
-    //  Slider Animation 
+    //  Slider Animation
     function applyAnimationProperties() {
       $("[data-ani]").each(function () {
         var animationClass = $(this).data("ani");
@@ -248,7 +232,7 @@
     applyAnimationProperties();
 
     // Blog Slider
-    var blogSlider = new Swiper('.blog1-slider', {
+    var blogSlider = new Swiper(".blog1-slider", {
       loop: true,
       slidesPerView: 3,
       spaceBetween: 10,
@@ -286,12 +270,11 @@
       navigation: {
         nextEl: ".slider-nav-area .swiper-next",
         prevEl: ".slider-nav-area .swiper-prev",
-      }
+      },
     });
 
-
     // Testimonial Slider
-    var testimonialSlider = new Swiper('.testimonial2-slider', {
+    var testimonialSlider = new Swiper(".testimonial2-slider", {
       loop: true,
       slidesPerView: 2,
       spaceBetween: 24,
@@ -329,12 +312,11 @@
       navigation: {
         nextEl: ".slider-nav-area .swiper-next",
         prevEl: ".slider-nav-area .swiper-prev",
-      }
+      },
     });
 
-
     // Brand Slider
-    var brandSlider = new Swiper('.brand2-slider', {
+    var brandSlider = new Swiper(".brand2-slider", {
       loop: true,
       slidesPerView: 6,
       spaceBetween: 24,
@@ -375,10 +357,8 @@
       },
     });
 
-
-
-    // Testimonial Slider 
-    var testimonialSlider = new Swiper('.testimonial1-slider', {
+    // Testimonial Slider
+    var testimonialSlider = new Swiper(".testimonial1-slider", {
       loop: true,
       slidesPerView: 1,
       spaceBetween: 10,
@@ -390,12 +370,11 @@
       navigation: {
         nextEl: ".slider-nav-area .swiper-next",
         prevEl: ".slider-nav-area .swiper-prev",
-      }
+      },
     });
 
-
-    // Banner Page Number Slider Style 
-    var oneGridBannerSlider = new Swiper('.one-grid-banner-slider', {
+    // Banner Page Number Slider Style
+    var oneGridBannerSlider = new Swiper(".one-grid-banner-slider", {
       slidesPerView: 1,
       spaceBetween: 0,
       loop: true,
@@ -406,22 +385,17 @@
       navigation: {
         nextEl: ".slider-nav-area .swiper-next",
         prevEl: ".slider-nav-area .swiper-prev",
-      }
+      },
     });
 
-    // Search Overly 
-    $(".others-options .search-box").on("click", function () { $(".search-overlay").toggleClass("search-overlay-active"); });
-    $(".search-overlay-close").on("click", function () { $(".search-overlay").removeClass("search-overlay-active"); });
-
-
-
-
-
-
+    // Search Overly
+    $(".others-options .search-box").on("click", function () {
+      $(".search-overlay").toggleClass("search-overlay-active");
+    });
+    $(".search-overlay-close").on("click", function () {
+      $(".search-overlay").removeClass("search-overlay-active");
+    });
   }); // End Document Ready Function
-
-
-
 
   /*-----------------------------------
         Preloader   
@@ -437,4 +411,3 @@
 
   loader();
 })(jQuery); // End jQuery
-

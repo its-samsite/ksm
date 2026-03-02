@@ -4,8 +4,8 @@
  * Marcelo IvÃ¡n Tosco (capynet)
  * Inspired on https://stackoverflow.com/a/40658647/1413049
  * ==================================================== */
-!function ($) {
-  'use strict'
+!(function ($) {
+  "use strict";
 
   var Class = function (el, cb) {
     this.$el = $(el);
@@ -15,7 +15,6 @@
   };
 
   Class.prototype = {
-
     /**
      * Checks if the element is in.
      *
@@ -38,22 +37,18 @@
       var _self = this;
       var _isIn = false;
 
-      $(window).on('resize scroll', function () {
-
+      $(window).on("resize scroll", function () {
         if (_self.isIn() && _isIn === false) {
-          _self.cb.call(_self.$el, 'entered');
+          _self.cb.call(_self.$el, "entered");
           _isIn = true;
         }
 
         if (_isIn === true && !_self.isIn()) {
-          _self.cb.call(_self.$el, 'leaved');
+          _self.cb.call(_self.$el, "leaved");
           _isIn = false;
         }
-
-      })
-    }
-
-
+      });
+    },
   };
 
   // jQuery plugin.
@@ -61,11 +56,10 @@
   $.fn.isInViewport = function (cb) {
     return this.each(function () {
       var $element = $(this);
-      var data = $element.data('isInViewport');
+      var data = $element.data("isInViewport");
       if (!data) {
-        $element.data('isInViewport', (new Class(this, cb)));
+        $element.data("isInViewport", new Class(this, cb));
       }
-    })
-  }
-
-}(window.jQuery);
+    });
+  };
+})(window.jQuery);
